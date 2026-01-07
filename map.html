@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Voyage - Villa de ramos mexique</title>
+  <style>
+    :root { --primary: #1a73e8; --bg-sidebar: #ffffff; }
+    body { margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; display: flex; height: 100vh; height: 100dvh; overflow: hidden; color: #333; }
+    #sidebar { width: 400px; background: var(--bg-sidebar); height: 100%; display: flex; flex-direction: column; box-shadow: 4px 0 15px rgba(0,0,0,0.08); z-index: 10; transition: 0.3s ease; }
+    #map { flex: 1; height: 100%; position: relative; }
+    
+    .sidebar-header { padding: 10px 15px; border-bottom: 1px solid #eee; background: #fff; flex-shrink: 0; }
+    .filter-group { display: flex; overflow-x: auto; white-space: nowrap; gap: 8px; padding: 5px 0 10px 0; scrollbar-width: none; }
+    .filter-btn { padding: 8px 16px; border: 1px solid #dfe1e5; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 600; }
+    .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    .step-nav { display: flex; gap: 8px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; scrollbar-width: none; }
+    .step-badge { padding: 6px 12px; border-radius: 15px; font-size: 11px; font-weight: 700; background: #f1f3f4; color: #5f6368; cursor: pointer; white-space: nowrap; border: 1px solid transparent; }
+    .step-badge.active { background: #e8f0fe; color: var(--primary); border-color: var(--primary); }
+
+    #poi-content { flex-grow: 1; overflow-y: auto; position: relative; }
+    .poi-detail { display: flex; flex-direction: column; min-height: 100%; }
+    .close-details { position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.6); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 20; font-size: 20px; }
+    .poi-image { width: 100%; height: 230px; object-fit: cover; background: #eee; }
+    .poi-body { padding: 20px; flex-grow: 1; }
+    .poi-body h2 { margin: 0 0 10px 0; font-size: 20px; line-height: 1.3; }
+    
+    .badge-container { margin-bottom: 10px; }
+    .badge { display: inline-block; background: #f1f3f4; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-right: 5px; }
+    .badge-day { background: #e8f0fe; color: var(--primary); }
+    
+    .btn-group { display: flex; gap: 10px; padding: 15px 20px; background: #fff; border-top: 1px solid #f0f0f0; position: sticky; bottom: 0; }
+    .btn { flex: 1; text-align: center; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .btn-main { background: var(--primary); color: white; }
+    .btn-outline { border: 1px solid #dadce0; color: #1a73e8; }
+    .placeholder { padding: 40px 20px; text-align: center; color: #70757a; font-size: 14px; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column-reverse; }
+      #sidebar { width: 100%; max-height: 55%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <div class="filter-group" id="day-filters">
+        <button class="filter-btn active" onclick="filterByDay('all', this)">Toutes</button>
+      </div>
+    </div>
+    <div id="poi-content">
+      <div class="placeholder">Sélectionnez une journée pour explorer les étapes.</div>
+    </div>
+  </div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+  <script>
+    let map, markerCluster;
+    let markersArray = [];
+    let initialCenter, initialZoom;
+    const locations = [{"lat":22.2568861,"lng":-100.9341508,"name":"Aéroport International Ponciano Arriaga, San Luis Potosí","jour":1,"titre":"","type":"aéroport","markerColor":"yellow","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.2568861,-100.9341508&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.2568861,-100.9341508"},{"lat":22.8382209,"lng":-101.9209981,"name":"Villa de Ramos, San Luis Potosí","jour":1,"titre":"","type":"ville","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.8382209,-101.9209981&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.8382209,-101.9209981"},{"lat":22.8382209,"lng":-101.9209981,"name":"Plaza Principal, Villa de Ramos","jour":2,"titre":"","type":"place","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.8382209,-101.9209981&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.8382209,-101.9209981"},{"lat":22.8382209,"lng":-101.9209981,"name":"Paysages désertiques, Villa de Ramos","jour":3,"titre":"","type":"nature","markerColor":"green","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.8382209,-101.9209981&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.8382209,-101.9209981"},{"lat":22.151698,"lng":-100.9762847,"name":"Plaza de Armas, San Luis Potosí","jour":4,"titre":"","type":"place","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.151698,-100.9762847&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.151698,-100.9762847"},{"lat":22.1507161,"lng":-100.9743819,"name":"Museo Nacional de la Máscara, San Luis Potosí","jour":5,"titre":"","type":"musée","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.1507161,-100.9743819&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.1507161,-100.9743819"},{"lat":22.1516705,"lng":-100.9756072,"name":"Catedral Metropolitana, San Luis Potosí","jour":5,"titre":"","type":"cathédrale","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.1516705,-100.9756072&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.1516705,-100.9756072"},{"lat":22.1550587,"lng":-100.9762909,"name":"Mercado Hidalgo, San Luis Potosí","jour":6,"titre":"","type":"marché","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.1550587,-100.9762909&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.1550587,-100.9762909"},{"lat":22.1429987,"lng":-100.9771678,"name":"Barrio de San Miguelito, San Luis Potosí","jour":6,"titre":"","type":"quartier","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.1429987,-100.9771678&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.1429987,-100.9771678"},{"lat":23.6893967,"lng":-100.8855459,"name":"Real de Catorce, San Luis Potosí","jour":7,"titre":"","type":"ville fantôme","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=23.6893967,-100.8855459&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=23.6893967,-100.8855459"},{"lat":23.6893967,"lng":-100.8855459,"name":"Tunnel d'Ogarrio, Real de Catorce","jour":7,"titre":"","type":"tunnel","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=23.6893967,-100.8855459&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=23.6893967,-100.8855459"},{"lat":23.6743149,"lng":-100.9138279,"name":"Cerro del Quemado, Real de Catorce","jour":8,"titre":"","type":"montagne sacrée","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=23.6743149,-100.9138279&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=23.6743149,-100.9138279"},{"lat":23.6881688,"lng":-100.8885995,"name":"Mina La Purísima, Real de Catorce","jour":8,"titre":"","type":"mine","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=23.6881688,-100.8885995&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=23.6881688,-100.8885995"},{"lat":22.1667798,"lng":-100.9978347,"name":"Balneario Gogorrón, San Luis Potosí","jour":10,"titre":"","type":"sources chaudes","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.1667798,-100.9978347&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.1667798,-100.9978347"},{"lat":21.864844,"lng":-100.0299297,"name":"Laguna de la Media Luna, Rioverde","jour":11,"titre":"","type":"lac","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=21.864844,-100.0299297&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=21.864844,-100.0299297"},{"lat":22.2568861,"lng":-100.9341508,"name":"Aéroport International Ponciano Arriaga, San Luis Potosí","jour":14,"titre":"","type":"aéroport","markerColor":"yellow","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=22.2568861,-100.9341508&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=22.2568861,-100.9341508"}];
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoomControl: true,
+        streetViewControl: false,
+        mapTypeControl: false,
+        styles: [{ featureType: "poi", elementType: "labels", stylers: [{ visibility: "off" }] }]
+      });
+
+      const days = [...new Set(locations.map(l => l.jour))].sort((a,b) => a - b);
+      const filterContainer = document.getElementById('day-filters');
+      days.forEach(day => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.innerText = 'Jour ' + day;
+        btn.onclick = function() { filterByDay(day, this); };
+        filterContainer.appendChild(btn);
+      });
+
+      const bounds = new google.maps.LatLngBounds();
+      locations.forEach((loc, index) => {
+        const marker = new google.maps.Marker({
+          position: { lat: loc.lat, lng: loc.lng },
+          // URL corrigée pour les icônes
+          icon: 'https://maps.google.com/mapfiles/ms/icons/' + loc.markerColor + '-dot.png',
+          label: { text: String(loc.jour), color: 'white', fontSize: '11px', fontWeight: 'bold' },
+          data: loc
+        });
+        marker.addListener('click', () => updateSidebar(loc));
+        markersArray.push(marker);
+        bounds.extend(marker.getPosition());
+      });
+
+      markerCluster = new markerClusterer.MarkerClusterer({ map, markers: markersArray });
+
+      if (locations.length > 0) {
+        map.fitBounds(bounds);
+        google.maps.event.addListenerOnce(map, 'idle', () => {
+          if (map.getZoom() > 14) map.setZoom(14);
+          initialCenter = map.getCenter();
+          initialZoom = map.getZoom();
+        });
+      }
+    }
+
+    function updateSidebar(poi) {
+      const container = document.getElementById('poi-content');
+      const daySteps = locations.filter(l => l.jour === poi.jour);
+      let stepHtml = '';
+      
+      if (daySteps.length > 1) {
+        stepHtml = '<div class="step-nav">';
+        daySteps.forEach((step, idx) => {
+          const active = (step.name === poi.name && step.lat === poi.lat) ? 'active' : '';
+          const locIdx = locations.findIndex(l => l === step);
+          stepHtml += `<div class="step-badge ${active}" onclick="updateSidebarByIndex(${locIdx})">Étape ${idx + 1}</div>`;
+        });
+        stepHtml += '</div>';
+      }
+
+      container.innerHTML = `
+        <div class="poi-detail">
+          <button class="close-details" onclick="closeSidebar()">✕</button>
+          <img src="${poi.streetViewUrl}" class="poi-image" onerror="this.style.display='none'">
+          <div class="poi-body">
+            ${stepHtml}
+            <div class="badge-container">
+              <span class="badge badge-day">Jour ${poi.jour}</span>
+              <span class="badge">${poi.type}</span>
+            </div>
+            <h2>${poi.name}</h2>
+            <p>${poi.titre}</p>
+          </div>
+          <div class="btn-group">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${poi.lat},${poi.lng}" target="_blank" class="btn btn-main">Itinéraire</a>
+            <a href="${poi.streetViewLinkUrl}" target="_blank" class="btn btn-outline">Street View</a>
+          </div>
+        </div>
+      `;
+      
+      // Déplacement et zoom unique ici
+      map.panTo({ lat: poi.lat, lng: poi.lng });
+      map.setZoom(14);
+      container.scrollTop = 0;
+    }
+
+    window.updateSidebarByIndex = function(index) {
+      updateSidebar(locations[index]);
+    };
+
+    function filterByDay(day, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filteredMarkers = day === 'all' ? markersArray : markersArray.filter(m => m.data.jour === day);
+      markerCluster.clearMarkers();
+      markerCluster.addMarkers(filteredMarkers);
+
+      if (day === 'all') {
+        map.setCenter(initialCenter);
+        map.setZoom(initialZoom);
+        closeSidebar();
+      } else if (filteredMarkers.length > 0) {
+        // Appelle la sidebar pour le premier point, qui gère aussi le panTo/zoom
+        updateSidebar(filteredMarkers[0].data);
+      }
+    }
+
+    function closeSidebar() {
+      document.getElementById('poi-content').innerHTML = '<div class="placeholder">Sélectionnez une journée pour explorer les étapes.</div>';
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI&callback=initMap"></script>
+</body>
+</html>
