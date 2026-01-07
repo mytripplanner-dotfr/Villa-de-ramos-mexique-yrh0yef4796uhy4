@@ -1,0 +1,448 @@
+{
+  "pays": "Mexique",
+  "drapeau": "🇲🇽",
+  "symbole": "🌵",
+  "titre": "Évasion Relaxante au Cœur du Mexique Central",
+  "budget_total": "Environ 2000-2500 €/personne",
+  "duree": "14 jours",
+  "date_debut": "2026-01-22",
+  "date_fin": "2026-02-05",
+  "temps_vol": "Environ 8h (depuis Bonneau, États-Unis)",
+  "escale": "1",
+  "jours": [
+    {
+      "jour": 1,
+      "symbole": "🛬",
+      "titre": "Arrivée et Douce Immersion",
+      "legende": "Après un long voyage, installez-vous tranquillement à Villa de Ramos. Profitez d'une soirée calme pour vous imprégner de l'atmosphère locale et vous reposer avant l'exploration.",
+      "lieu": "Villa de Ramos",
+      "activites": [
+        "<strong>🛬</strong>: Atterrissage à l'aéroport de San Luis Potosí (SLP) et transfert vers Villa de Ramos.",
+        "<strong>🛏️</strong>: Installation dans votre hébergement pour une première nuit paisible.",
+        "<strong>🚶‍♀️</strong>: Première balade digestive dans les environs immédiats de votre logement."
+      ],
+      "illustration": "jour1.jpg",
+      "encarts": [
+        {
+          "symbole": "ℹ️",
+          "titre": "À savoir",
+          "texte": "Le trajet de l'aéroport à Villa de Ramos dure environ 1h30 à 2h. Prévoyez un taxi ou une navette pré-réservée."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Aéroport International Ponciano Arriaga, San Luis Potosí",
+          "categorie": "Aéroport",
+          "coords": { "lat": 22.2500, "lng": -100.9300 }
+        },
+        {
+          "nom_recherche": "Villa de Ramos, San Luis Potosí",
+          "categorie": "Ville",
+          "coords": { "lat": 22.9500, "lng": -101.5833 }
+        }
+      ]
+    },
+    {
+      "jour": 2,
+      "symbole": "🚶‍♀️",
+      "titre": "Cœur de Village et Saveurs Locales",
+      "legende": "Plongez dans l'authenticité de Villa de Ramos. Flânez au marché, rencontrez les habitants et savourez la cuisine locale pour une immersion culturelle douce.",
+      "lieu": "Villa de Ramos",
+      "activites": [
+        "<strong>🛍️</strong>: Visite du marché local de Villa de Ramos pour découvrir les produits frais et l'artisanat.",
+        "<strong>⛪</strong>: Exploration de l'église paroissiale et de la place principale, le cœur du village.",
+        "<strong>🍽️</strong>: Dégustation de spécialités régionales dans un \"comedor\" typique."
+      ],
+      "illustration": "jour2.jpg",
+      "encarts": [
+        {
+          "symbole": "🍴",
+          "titre": "Gastronomie",
+          "texte": "N'hésitez pas à goûter les \"gorditas\" ou \"enchiladas potosinas\" dans les petits restaurants locaux."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Plaza Principal, Villa de Ramos",
+          "categorie": "Place",
+          "coords": { "lat": 22.9500, "lng": -101.5833 }
+        }
+      ]
+    },
+    {
+      "jour": 3,
+      "symbole": "🏜️",
+      "titre": "Harmonie Désertique et Repos",
+      "legende": "Éloignez-vous un instant du village pour admirer les paysages semi-désertiques environnants. Une journée dédiée à la contemplation et au repos, loin de l'agitation.",
+      "lieu": "Environs de Villa de Ramos",
+      "activites": [
+        "<strong>🚗</strong>: Courte excursion en voiture pour admirer les paysages de cactus et de montagnes arides.",
+        "<strong>🚶‍♂️</strong>: Balade douce dans la nature environnante, à la recherche de la flore locale.",
+        "<strong>🧘‍♀️</strong>: Après-midi libre pour se détendre, lire ou profiter de l'ambiance sereine."
+      ],
+      "illustration": "jour3.jpg",
+      "encarts": [
+        {
+          "symbole": "☀️",
+          "titre": "Conseil",
+          "texte": "Le soleil peut être intense même en hiver. Prévoyez chapeau, lunettes de soleil et crème solaire."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Paysages désertiques, Villa de Ramos",
+          "categorie": "Nature",
+          "coords": { "lat": 22.9000, "lng": -101.6000 }
+        }
+      ]
+    },
+    {
+      "jour": 4,
+      "symbole": "🏛️",
+      "titre": "Capitale Coloniale et Splendeur Architecturale",
+      "legende": "Direction San Luis Potosí, une ville riche en histoire et en architecture. Installez-vous et commencez à explorer son magnifique centre historique, classé au patrimoine mondial.",
+      "lieu": "San Luis Potosí",
+      "activites": [
+        "<strong>🚌</strong>: Transfert matinal de Villa de Ramos à San Luis Potosí (environ 1h30 de route).",
+        "<strong>🛏️</strong>: Installation à votre hôtel au cœur de la ville.",
+        "<strong>🚶‍♀️</strong>: Première découverte du centre historique, en commençant par la Plaza de Armas."
+      ],
+      "illustration": "jour4.jpg",
+      "encarts": [
+        {
+          "symbole": "ℹ️",
+          "titre": "Transport",
+          "texte": "Des bus locaux relient Villa de Ramos à San Luis Potosí, une option économique et authentique."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Plaza de Armas, San Luis Potosí",
+          "categorie": "Place",
+          "coords": { "lat": 22.1400, "lng": -100.9770 }
+        }
+      ]
+    },
+    {
+      "jour": 5,
+      "symbole": "⛪",
+      "titre": "Art, Histoire et Jardins Secrets",
+      "legende": "Poursuivez votre exploration de San Luis Potosí en visitant ses musées et ses églises baroques. Laissez-vous charmer par la richesse culturelle de cette ville élégante.",
+      "lieu": "San Luis Potosí",
+      "activites": [
+        "<strong>🖼️</strong>: Visite du Musée National de la Masque (Museo Nacional de la Máscara), une collection unique.",
+        "<strong>⛪</strong>: Admiration de la Cathédrale Métropolitaine et de l'Église de San Francisco.",
+        "<strong>🌳</strong>: Promenade relaxante dans le Jardin de San Francisco ou le Jardin de San Juan de Dios."
+      ],
+      "illustration": "jour5.jpg",
+      "encarts": [
+        {
+          "symbole": "🎭",
+          "titre": "Culture",
+          "texte": "Le Musée National de la Masque abrite une impressionnante collection de masques rituels et de danse du Mexique."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Museo Nacional de la Máscara, San Luis Potosí",
+          "categorie": "Musée",
+          "coords": { "lat": 22.1408, "lng": -100.9760 }
+        },
+        {
+          "nom_recherche": "Catedral Metropolitana, San Luis Potosí",
+          "categorie": "Cathédrale",
+          "coords": { "lat": 22.1400, "lng": -100.9770 }
+        }
+      ]
+    },
+    {
+      "jour": 6,
+      "symbole": "🎨",
+      "titre": "Artisanat et Délices Potosinos",
+      "legende": "Découvrez l'âme artisanale de San Luis Potosí et régalez vos papilles avec ses spécialités. Une journée pour les sens, entre découvertes et gourmandises.",
+      "lieu": "San Luis Potosí",
+      "activites": [
+        "<strong>🛍️</strong>: Flânerie au Mercado Hidalgo pour l'artisanat et les produits locaux.",
+        "<strong>🚶‍♀️</strong>: Exploration du Barrio de San Miguelito, connu pour ses ateliers d'artisans.",
+        "<strong>🧑‍🍳</strong>: Dégustation de \"enchiladas potosinas\" dans un restaurant traditionnel."
+      ],
+      "illustration": "jour6.jpg",
+      "encarts": [
+        {
+          "symbole": "🎁",
+          "titre": "Souvenirs",
+          "texte": "Le Mercado Hidalgo est idéal pour trouver des souvenirs authentiques et des produits régionaux."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Mercado Hidalgo, San Luis Potosí",
+          "categorie": "Marché",
+          "coords": { "lat": 22.1440, "lng": -100.9800 }
+        },
+        {
+          "nom_recherche": "Barrio de San Miguelito, San Luis Potosí",
+          "categorie": "Quartier",
+          "coords": { "lat": 22.1350, "lng": -100.9850 }
+        }
+      ]
+    },
+    {
+      "jour": 7,
+      "symbole": "👻",
+      "titre": "Voyage dans le Temps à Real de Catorce",
+      "legende": "Partez pour une aventure unique vers Real de Catorce, une ville fantôme figée dans le temps. Ses rues pavées et ses paysages désertiques offrent une atmosphère mystique et relaxante.",
+      "lieu": "Real de Catorce",
+      "activites": [
+        "<strong>🚗</strong>: Départ matinal pour Real de Catorce (environ 2h30-3h de route depuis SLP).",
+        "<strong>🐎</strong>: Arrivée et traversée du \"Tunnel d'Ogarrio\" pour accéder à la ville.",
+        "<strong>🚶‍♀️</strong>: Première exploration des rues pavées et de l'église de la Purísima Concepción."
+      ],
+      "illustration": "jour7.jpg",
+      "encarts": [
+        {
+          "symbole": "⚠️",
+          "titre": "Accès",
+          "texte": "L'accès à Real de Catorce se fait par un long tunnel. Des jeeps locales (Willys) peuvent vous y conduire depuis l'entrée."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Real de Catorce, San Luis Potosí",
+          "categorie": "Ville fantôme",
+          "coords": { "lat": 23.6100, "lng": -100.8900 }
+        },
+        {
+          "nom_recherche": "Tunnel d'Ogarrio, Real de Catorce",
+          "categorie": "Tunnel",
+          "coords": { "lat": 23.6080, "lng": -100.8950 }
+        }
+      ]
+    },
+    {
+      "jour": 8,
+      "symbole": "⛰️",
+      "titre": "Vues Imprenables et Légendes Minières",
+      "legende": "Découvrez les secrets de Real de Catorce, entre anciennes mines et panoramas à couper le souffle. Une journée pour s'imprégner de l'histoire et de la beauté brute du désert.",
+      "lieu": "Real de Catorce",
+      "activites": [
+        "<strong>🐴</strong>: Balade à cheval (optionnel et doux) vers le Cerro del Quemado, un lieu sacré pour les Huichols.",
+        "<strong>🚶‍♂️</strong>: Visite des ruines de l'ancienne mine \"La Purísima\" et des ateliers d'argent.",
+        "<strong>🌅</strong>: Coucher de soleil depuis un point de vue élevé, offrant une vue panoramique sur le désert."
+      ],
+      "illustration": "jour8.jpg",
+      "encarts": [
+        {
+          "symbole": "✨",
+          "titre": "Spiritualité",
+          "texte": "Real de Catorce est un lieu de pèlerinage important, notamment pour les Huichols qui y recherchent le peyotl."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Cerro del Quemado, Real de Catorce",
+          "categorie": "Montagne sacrée",
+          "coords": { "lat": 23.6200, "lng": -100.9000 }
+        },
+        {
+          "nom_recherche": "Mina La Purísima, Real de Catorce",
+          "categorie": "Mine",
+          "coords": { "lat": 23.6150, "lng": -100.8900 }
+        }
+      ]
+    },
+    {
+      "jour": 9,
+      "symbole": "😌",
+      "titre": "Retour en Ville et Douceur Nocturne",
+      "legende": "Après l'aventure désertique, retour à la civilisation de San Luis Potosí. Profitez d'une soirée libre pour vous détendre, dîner tranquillement et vous imprégner de l'ambiance urbaine.",
+      "lieu": "San Luis Potosí",
+      "activites": [
+        "<strong>🚗</strong>: Retour de Real de Catorce à San Luis Potosí en matinée.",
+        "<strong>💆‍♀️</strong>: Après-midi libre pour se reposer, faire du shopping ou visiter un lieu manqué.",
+        "<strong>🍽️</strong>: Dîner dans un restaurant agréable du centre-ville, savourant la cuisine locale."
+      ],
+      "illustration": "jour9.jpg",
+      "encarts": [
+        {
+          "symbole": "💡",
+          "titre": "Conseil",
+          "texte": "Profitez de cette soirée pour explorer les \"callejones\" (ruelles) illuminées du centre historique."
+        }
+      ],
+      "points_interet": []
+    },
+    {
+      "jour": 10,
+      "symbole": "♨️",
+      "titre": "Détente Absolue aux Sources Chaudes",
+      "legende": "Offrez-vous une journée de pure relaxation aux sources thermales de Gogorrón. Laissez les eaux chaudes apaiser votre corps et votre esprit dans un cadre naturel et paisible.",
+      "lieu": "Balneario Gogorrón",
+      "activites": [
+        "<strong>🚗</strong>: Départ pour le Balneario Gogorrón (environ 1h de route depuis SLP).",
+        "<strong>♨️</strong>: Baignade et relaxation dans les différentes piscines d'eaux thermales.",
+        "<strong>🧺</strong>: Pique-nique ou déjeuner sur place, profitant de l'environnement verdoyant."
+      ],
+      "illustration": "jour10.jpg",
+      "encarts": [
+        {
+          "symbole": "👙",
+          "titre": "Préparation",
+          "texte": "N'oubliez pas votre maillot de bain, une serviette et des sandales pour profiter pleinement des thermes."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Balneario Gogorrón, San Luis Potosí",
+          "categorie": "Sources chaudes",
+          "coords": { "lat": 22.0000, "lng": -101.1000 }
+        }
+      ]
+    },
+    {
+      "jour": 11,
+      "symbole": "💧",
+      "titre": "Oasis Bleue et Sérénité Aquatique",
+      "legende": "Découvrez la beauté cristalline de la Laguna de la Media Luna, une oasis naturelle parfaite pour la baignade et la détente. Une journée rafraîchissante au cœur de la nature.",
+      "lieu": "Laguna de la Media Luna",
+      "activites": [
+        "<strong>🚗</strong>: Excursion vers la Laguna de la Media Luna (environ 1h30-2h de route depuis SLP).",
+        "<strong>🏊‍♀️</strong>: Baignade et snorkeling dans les eaux turquoise de la lagune.",
+        "<strong>🌳</strong>: Promenade autour de la lagune et observation de la faune locale."
+      ],
+      "illustration": "jour11.jpg",
+      "encarts": [
+        {
+          "symbole": "🐠",
+          "titre": "Activité",
+          "texte": "Les eaux claires de la Laguna de la Media Luna sont idéales pour le snorkeling, même pour les débutants."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Laguna de la Media Luna, Rioverde",
+          "categorie": "Lac",
+          "coords": { "lat": 21.7800, "lng": -100.0000 }
+        }
+      ]
+    },
+    {
+      "jour": 12,
+      "symbole": "🛍️",
+      "titre": "Libre Exploration et Derniers Souvenirs",
+      "legende": "Profitez de cette journée libre pour revisiter vos lieux préférés à San Luis Potosí, faire du shopping pour des souvenirs ou simplement vous détendre dans un café local.",
+      "lieu": "San Luis Potosí",
+      "activites": [
+        "<strong>🚶‍♀️</strong>: Re-visite d'un musée ou d'un quartier qui vous a particulièrement plu.",
+        "<strong>🎁</strong>: Achat de souvenirs et d'artisanat local dans les boutiques du centre.",
+        "<strong>☕</strong>: Détente dans un café typique, observant le rythme de la vie locale."
+      ],
+      "illustration": "jour12.jpg",
+      "encarts": [
+        {
+          "symbole": "🗺️",
+          "titre": "Flexibilité",
+          "texte": "Cette journée est l'occasion parfaite pour adapter l'itinéraire à vos envies du moment."
+        }
+      ],
+      "points_interet": []
+    },
+    {
+      "jour": 13,
+      "symbole": "🎭",
+      "titre": "Derniers Instants et Douce Nuit",
+      "legende": "Une dernière soirée pour savourer l'ambiance de San Luis Potosí. Profitez d'un dîner spécial et, si l'occasion se présente, d'un spectacle culturel pour clôturer votre voyage en beauté.",
+      "lieu": "San Luis Potosí",
+      "activites": [
+        "<strong>📦</strong>: Préparation des bagages et vérification des derniers détails.",
+        "<strong>🍽️</strong>: Dîner d'adieu dans un restaurant gastronomique ou traditionnel.",
+        "<strong>🎶</strong>: Assister à un spectacle de danse folklorique ou de musique mariachi (si disponible)."
+      ],
+      "illustration": "jour13.jpg",
+      "encarts": [
+        {
+          "symbole": "🎉",
+          "titre": "Ambiance",
+          "texte": "Les places publiques s'animent souvent le soir avec des musiciens et des danseurs, une belle façon de dire au revoir."
+        }
+      ],
+      "points_interet": []
+    },
+    {
+      "jour": 14,
+      "symbole": "🛫",
+      "titre": "Adieux au Mexique",
+      "legende": "C'est l'heure de dire au revoir au Mexique. Transfert à l'aéroport de San Luis Potosí pour votre vol retour, la tête pleine de souvenirs inoubliables.",
+      "lieu": "San Luis Potosí",
+      "activites": [
+        "<strong>🍳</strong>: Petit-déjeuner à l'hôtel.",
+        "<strong>🚗</strong>: Transfert vers l'aéroport international de San Luis Potosí (SLP).",
+        "<strong>🛫</strong>: Vol retour vers Bonneau, États-Unis."
+      ],
+      "illustration": "jour14.jpg",
+      "encarts": [
+        {
+          "symbole": "⏰",
+          "titre": "Timing",
+          "texte": "Prévoyez suffisamment de temps pour le transfert à l'aéroport et les formalités d'embarquement."
+        }
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Aéroport International Ponciano Arriaga, San Luis Potosí",
+          "categorie": "Aéroport",
+          "coords": { "lat": 22.2500, "lng": -100.9300 }
+        }
+      ]
+    }
+  ],
+  "detail_budget": [
+    { "titre": "Budget vol:", "legende": "A partir de 566 €/pers", "symbole": "🛬" },
+    { "titre": "Budget transports:", "legende": "Environ 250 €/pers (location de voiture ou bus interurbains)", "symbole": "🚆" },
+    { "titre": "Budget repas:", "legende": "Environ 400 €/pers (14 jours à 30€/jour en moyenne)", "symbole": "🥗" },
+    { "titre": "Budget logement:", "legende": "Environ 700 €/pers (13 nuits à 50-60€/nuit en moyenne pour 3*)", "symbole": "🛏️" },
+    { "titre": "Budget activités:", "legende": "Environ 150 €/pers (entrées musées, sources chaudes, etc.)", "symbole": "🎭" }
+  ],
+  "periodes_ideales": [{ "titre": "Novembre à Mars (saison sèche et températures douces)", "symbole": "☀️" }],
+  "infos_pratiques": [
+    { "titre": "En janvier-février, les températures varient entre 10 et 25°C. Prévoir des couches pour les soirées fraîches et des vêtements légers pour la journée.", "symbole": "🍁" },
+    { "titre": "Le peso mexicain (MXN). Cartes de crédit largement acceptées dans les villes, mais prévoir du liquide pour les petits commerces et les zones rurales.", "symbole": "💳" },
+    { "titre": "Permis français suffisant pour la location de voiture. Conduite à droite, vitesse en km/h. Attention aux \"topes\" (ralentisseurs).", "symbole": "🚗" },
+    { "titre": "Carte SIM locale (Telcel, AT&T) ou eSIM recommandée. Wifi disponible dans la majorité des hébergements et restaurants.", "symbole": "📶" }
+  ],
+  "infos_decallees": [
+    { 
+      "symbole": "💡", 
+      "titre": "Le saviez-vous ?", 
+      "texte": "San Luis Potosí est surnommée \"La Ciudad de los Jardines\" (La Ville des Jardins) en raison de ses nombreux parcs et places verdoyantes, offrant des oasis de fraîcheur au cœur de la ville." 
+    },
+    { 
+      "symbole": "🙃", 
+      "titre": "Insolite", 
+      "texte": "À Real de Catorce, l'accès principal se fait par un tunnel de 2,3 km de long, le \"Tunnel d'Ogarrio\", si étroit qu'il est à sens unique et régulé par des feux de signalisation. Une entrée digne d'un film !" 
+    }
+  ],
+  "specialites_culinaires": [
+    { 
+      "symbole": "🍴", 
+      "titre": "Enchiladas Potosinas", 
+      "description": "Ces petites tortillas de maïs farcies au fromage et pimentées, souvent servies avec de la crème et du fromage frais, sont une spécialité emblématique de San Luis Potosí." 
+    },
+    { 
+      "symbole": "🍖", 
+      "titre": "Asado de Boda", 
+      "description": "Un plat traditionnel à base de porc mijoté dans une sauce riche et épicée à base de piments ancho et guajillo, souvent servi lors des célébrations et mariages." 
+    },
+    { 
+      "symbole": "🍬", 
+      "titre": "Colaciones", 
+      "description": "De petits bonbons traditionnels à base de sucre, de miel et d'amandes, souvent offerts lors des fêtes religieuses, une douceur locale à ne pas manquer." 
+    }
+  ],
+  "liens_utiles": [
+    { "legende": "Vols", "titre": "Réserve ton vol", "url": "https://www.kayak.fr/flights/CHS-SLP/2026-01-22/2026-02-05", "symbole": "🛬" },
+    { "legende": "Infos officielles et inspirations", "titre": "Tourisme Mexique", "url": "https://www.visitmexico.com/", "symbole": "📘" },
+    { "legende": "Horaires des transports", "titre": "Bus ADO (principale compagnie de bus)", "url": "https://www.ado.com.mx/", "symbole": "🚆" },
+    { "legende": "Météo", "titre": "Météo Mexique", "url": "https://www.accuweather.com/fr/mx/mexico-weather", "symbole": "🌤️" }
+  ]
+}
